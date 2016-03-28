@@ -1,0 +1,18 @@
+# vim: set ft=zsh:
+
+# mail address
+export EMAIL=macksx@gmail.com
+
+# set environment variables
+export LANG=ja_JP.UTF-8
+export LC_CTYPE=ja_JP.UTF-8
+export LC_TIME=C
+export LC_MESSAGES=C
+
+# for X
+test -n "$DISPLAY" && LC_MESSAGES=ja_JP.UTF-8
+
+export COLUMNS LINES
+
+which vim >/dev/null && export EDITOR=vim
+which lv  >/dev/null && export PAGER="lv -c"

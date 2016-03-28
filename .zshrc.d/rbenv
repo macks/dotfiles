@@ -1,0 +1,8 @@
+# vim: set ft=zsh:
+
+# rbenv
+if test -x ~/.rbenv/bin/rbenv; then
+  PATH=$(echo "$PATH" | sed "s|[^:]*/.rbenv/[^:]*:||g")
+  PATH=~/.rbenv/bin:"$PATH"
+  eval "$(rbenv init -)"
+fi

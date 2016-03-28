@@ -1,0 +1,100 @@
+# vim: set ft=zsh:
+
+# Enable compsys completion.
+autoload -U compinit
+compinit
+
+zmodload zsh/complist 2>/dev/null
+
+# key binding
+bindkey -e
+
+# shell options
+setopt auto_cd
+setopt auto_pushd
+setopt pushd_ignore_dups
+
+setopt hist_ignore_all_dups
+setopt hist_ignore_space
+setopt share_history
+
+setopt extended_glob
+setopt no_nomatch
+
+setopt no_auto_menu
+setopt no_beep
+setopt no_prompt_cr
+
+# japanese characters
+setopt print_eight_bit
+
+# bash-like word editing
+bash-kill-word () {
+  local WORDCHARS=''
+  zle .kill-word
+}
+bash-backward-kill-word () {
+  local WORDCHARS=''
+  zle .backward-kill-word
+}
+zle -N bash-kill-word
+zle -N bash-backward-kill-word
+
+bindkey "^[d" bash-kill-word
+bindkey "^[^?" bash-backward-kill-word
+
+# menu selection
+list-choices-and-menu-select () {
+  zle list-choices
+  zle menu-select
+}
+zle -N list-choices-and-menu-select
+
+bindkey "^[i" list-choices-and-menu-select
+
+# more completion
+zstyle ':completion:*:processes' command 'ps x'
+
+# set prompt
+if [ -z "$debian_chroot" -a -r /etc/debian_chroot ]; then
+  debian_chroot=$(cat /etc/debian_chroot)
+fi
+PROMPT="${debian_chroot:+($debian_chroot)}%n@%m:%~%(!,#,\$) "
+
+# history
+HISTFILE=~/.zsh_history
+HISTSIZE=100000
+SAVEHIST=100000
+
+# directory stack
+DIRSTACKSIZE=30
+
+# path
+for d in ~/bin; do
+  if test -d $d; then
+    [[ -n ${(M)path:#$d} ]] || path=($d $path)
+  fi
+done
+
+# if TERM is xterm or screen, set the title.
+case "$TERM" in
+xterm*|rxvt*|mlterm*)
+  precmd () {
+    echo -ne "\033]0;${USERNAME}@${HOST%%.*}: ${PWD}\007"
+  }
+  ;;
+screen*)
+  precmd () {
+    echo -ne "\033]0;${USERNAME}@${HOST%%.*}: ${PWD}\007\033k${SCREEN_TITLE}\033\\"
+  }
+  SCREEN_TITLE=${HOST%%.*}
+  title () { SCREEN_TITLE="$1"; }
+  ;;
+esac
+
+# enable intelligent run-help
+unalias run-help 2>/dev/null
+alias help=run-help
+
+# disable Ctrl-S
+stty stop undef
