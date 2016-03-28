@@ -1,0 +1,9 @@
+escape ^]^]
+startup_message off
+vbell off
+defscrollback 3000
+defencoding utf-8
+hardstatus alwayslastline "%-Lw%{= bw}%50>%n%f* %t%{-}%+Lw%<"
+termcapinfo screen|xterm*|rxvt*|kterm*|Eterm* XT
+bind R resize
+cjkwidth on
