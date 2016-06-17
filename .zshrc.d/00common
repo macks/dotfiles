@@ -95,6 +95,3 @@ esac
 # enable intelligent run-help
 unalias run-help 2>/dev/null
 alias help=run-help
-
-# disable Ctrl-S
-stty stop undef
