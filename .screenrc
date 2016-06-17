@@ -5,5 +5,10 @@ defscrollback 3000
 defencoding utf-8
 hardstatus alwayslastline "%-Lw%{= bw}%50>%n%f* %t%{-}%+Lw%<"
 termcapinfo screen|xterm*|rxvt*|kterm*|Eterm* XT
-bind R resize
 cjkwidth on
+
+bind R resize
+bind j focus down
+bind k focus up
+bind t focus top
+bind b focus bottom
