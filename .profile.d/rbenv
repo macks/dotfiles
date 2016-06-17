@@ -1,8 +1,18 @@
 # vim: set ft=sh:
 
 # rbenv
-if test -x ~/.rbenv/bin/rbenv; then
-  PATH=$(echo "$PATH" | sed "s|[^:]*/.rbenv/[^:]*:||g")
-  PATH=~/.rbenv/bin:"$PATH"
+if which rbenv >/dev/null; then
   eval "$(rbenv init -)"
+elif test -n "$RBENV_ROOT"; then
+  PATH="$RBENV_ROOT/bin:$PATH"
+  eval "$(rbenv init -)"
+else
+  for d in ~/.rbenv /usr/local/rbenv; do
+    if test -x "$d/bin/rbenv"; then
+      export RBENV_ROOT="$d"
+      PATH="$RBENV_ROOT/bin:$PATH"
+      eval "$(rbenv init -)"
+      break
+    fi
+  done
 fi
