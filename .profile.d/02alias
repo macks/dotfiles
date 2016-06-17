@@ -1,4 +1,4 @@
-# vim: set ft=zsh:
+# vim: set ft=sh:
 
 # aliases
 alias rm='rm -i'

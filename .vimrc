@@ -1,0 +1,39 @@
+set enc=utf-8
+set fenc=utf-8
+set fencs=utf-8,cp932,euc-jp
+autocmd BufReadPost * if search('\e\$B.*\e(B') | edit ++enc=iso-2022-jp | endif
+filetype plugin on
+
+set sw=2 sts=2
+set hlsearch incsearch ignorecase smartcase autoindent wildmenu showmatch nobackup ruler
+set modeline
+syntax on
+
+" git
+let g:git_diff_spawn_mode = 1
+
+runtime macros/matchit.vim
+
+if v:version >= 602
+  set ambiwidth=double
+endif
+
+if v:version >= 700
+  " Popup menu
+  hi Pmenu ctermfg=black ctermbg=white
+  hi PmenuSel ctermfg=black ctermbg=cyan
+  hi PmenuSbar ctermbg=black
+
+  " Omni Completion
+  set completeopt=menu
+endif
+
+if has('gui_running')
+  set guioptions-=T
+  set guifont=Monospace\ 12
+  set columns=80 lines=35
+endif
+
+au BufRead,BufNewFile *.rb,*.erb set et sw=2 sts=2
+au BufRead,BufNewFile *.py set et sw=4 sts=4
+au BufRead,BufNewFile *.haml,*.sass,*.scss set et

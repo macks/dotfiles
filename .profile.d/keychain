@@ -1,4 +1,4 @@
-# vim: set ft=zsh:
+# vim: set ft=sh:
 
 # manage ssh-agent
 if test $(id -un) != root && which keychain >/dev/null && ls ~/.ssh/id_[dr]sa >/dev/null 2>&1; then

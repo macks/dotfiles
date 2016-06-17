@@ -1,7 +1,12 @@
-# vim: set ft=zsh:
+# vim: set ft=sh:
 
 # mail address
-export EMAIL=macksx@gmail.com
+if test "$USER" = macks; then
+  EMAIL=macksx@gmail.com
+else
+  EMAIL=k-matsuyama@bns-g.com
+fi
+export EMAIL
 
 # set environment variables
 export LANG=ja_JP.UTF-8
@@ -15,4 +20,4 @@ test -n "$DISPLAY" && LC_MESSAGES=ja_JP.UTF-8
 export COLUMNS LINES
 
 which vim >/dev/null && export EDITOR=vim
-which lv  >/dev/null && export PAGER="lv -c"
+which lv  >/dev/null && export PAGER=lv

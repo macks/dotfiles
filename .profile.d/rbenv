@@ -1,4 +1,4 @@
-# vim: set ft=zsh:
+# vim: set ft=sh:
 
 # rbenv
 if test -x ~/.rbenv/bin/rbenv; then
