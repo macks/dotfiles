@@ -69,13 +69,6 @@ SAVEHIST=100000
 # directory stack
 DIRSTACKSIZE=30
 
-# path
-for d in ~/bin; do
-  if test -d $d; then
-    [[ -n ${(M)path:#$d} ]] || path=($d $path)
-  fi
-done
-
 # if TERM is xterm or screen, set the title.
 case "$TERM" in
 xterm*|rxvt*|mlterm*)

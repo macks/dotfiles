@@ -1,5 +1,13 @@
 # vim: set ft=sh:
 
+# path
+for d in ~/bin; do
+  test -d "$d" || continue
+  if ! echo ":$PATH:" | grep -q ":$d:"; then
+    PATH="$d:$PATH"
+  fi
+done
+
 # mail address
 if test "$USER" = macks; then
   EMAIL=macksx@gmail.com
