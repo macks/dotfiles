@@ -1,0 +1,50 @@
+# bashrc
+# vim: set ft=sh:
+
+# history settings
+HISTIGNORE='&: *:cd:cd [^-+/~]*:ls -+([al])'
+HISTSIZE=100000
+HISTFILESIZE=100000
+shopt -s histappend
+
+# check windows size
+shopt -s checkwinsize
+
+# if TERM is screen, set the title.
+case "$TERM" in
+screen*)
+    PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}: ${PWD}\007\033k${SCREEN_TITLE}\033\\"'
+    SCREEN_TITLE=${HOSTNAME%%.*}
+    title () { SCREEN_TITLE="$1"; }
+    ;;
+esac
+
+# automatic pushd
+DIRSTACK_MAX=20
+cd () {
+  if test "$1" = "" -o "$1" = "-"; then
+    builtin cd "$@"
+    pushd -n $OLDPWD >/dev/null
+  else
+    pushd "$@" >/dev/null || return 1
+  fi
+
+  local i len=${#DIRSTACK[@]} pwd=${PWD/#$HOME/~}
+  for ((i=1; i<len; ++i)) do
+    if test "${DIRSTACK[$i]}" = "$pwd"; then
+      popd -n +$i >/dev/null
+      break
+    fi
+  done
+
+  if test "${#DIRSTACK[@]}" -ge "$DIRSTACK_MAX"; then
+    popd -n -0 >/dev/null
+  fi
+}
+
+# completion
+if test -f /usr/share/bash-completion/bash_completion; then
+  . /usr/share/bash-completion/bash_completion
+elif test -f /etc/bash_completion; then
+  . /etc/bash_completion
+fi
