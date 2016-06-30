@@ -9,7 +9,12 @@ set hlsearch incsearch ignorecase smartcase autoindent wildmenu showmatch noback
 set modeline
 syntax on
 
-" git
+" plugins
+call plug#begin('~/.vim/plugged')
+Plug 'vim-scripts/git-commit'
+call plug#end()
+
+" git-commit
 let g:git_diff_spawn_mode = 1
 
 runtime macros/matchit.vim
@@ -34,6 +39,7 @@ if has('gui_running')
   set columns=80 lines=35
 endif
 
+" file types
 au BufRead,BufNewFile *.rb,*.erb set et sw=2 sts=2
 au BufRead,BufNewFile *.py set et sw=4 sts=4
 au BufRead,BufNewFile *.haml,*.sass,*.scss set et
