@@ -3,9 +3,7 @@
 # path
 for i in ~/bin; do
   test -d "$i" || continue
-  if ! echo ":$PATH:" | fgrep -q ":$i:"; then
-    PATH="$i:$PATH"
-  fi
+  PATH="$i:$PATH"
 done
 
 # mail address

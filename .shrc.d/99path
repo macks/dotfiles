@@ -1,0 +1,4 @@
+# vim: set ft=sh:
+
+# Remove duplicate entries from PATH
+PATH=$(echo "$PATH" | awk -v RS=: '!a[$1]++ { printf (NR > 1 ? ":" : "") $1 }')
