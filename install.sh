@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -e
 
 myname=$(basename "$0")
 mydir=$(readlink -f "$(dirname "$0")")
