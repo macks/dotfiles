@@ -7,9 +7,9 @@ elif test -n "$RBENV_ROOT"; then
   PATH="$RBENV_ROOT/bin:$PATH"
   eval "$(rbenv init -)"
 else
-  for d in ~/.rbenv /usr/local/rbenv; do
-    if test -x "$d/bin/rbenv"; then
-      export RBENV_ROOT="$d"
+  for i in ~/.rbenv /usr/local/rbenv; do
+    if test -x "$i/bin/rbenv"; then
+      export RBENV_ROOT="$i"
       PATH="$RBENV_ROOT/bin:$PATH"
       eval "$(rbenv init -)"
       break

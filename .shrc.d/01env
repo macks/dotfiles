@@ -1,10 +1,10 @@
 # vim: set ft=sh:
 
 # path
-for d in ~/bin; do
-  test -d "$d" || continue
-  if ! echo ":$PATH:" | grep -q ":$d:"; then
-    PATH="$d:$PATH"
+for i in ~/bin; do
+  test -d "$i" || continue
+  if ! echo ":$PATH:" | fgrep -q ":$i:"; then
+    PATH="$i:$PATH"
   fi
 done
 
