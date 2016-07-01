@@ -2,8 +2,7 @@
 
 # path
 for i in ~/bin; do
-  test -d "$i" || continue
-  PATH="$i:$PATH"
+  test -d "$i" && PATH="$i:$PATH"
 done
 
 # mail address
