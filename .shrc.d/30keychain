@@ -2,10 +2,6 @@
 
 # manage ssh-agent
 if test $(id -un) != root && which keychain >/dev/null && ls ~/.ssh/id_[dr]sa >/dev/null 2>&1; then
-  ssh-add -l >/dev/null 2>&1
-  if test "$?" = 2; then
-    # start keychain if can't contact ssh-agent.
-    eval $(keychain --agents ssh --nogui --eval --quiet --timeout 10080 --noinherit ~/.ssh/id_[dr]sa)
-  fi
+  eval $(keychain --agents ssh --nogui --eval --quiet --timeout 10080)
   alias ssh-add='ssh-add -t 604800'
 fi
