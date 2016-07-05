@@ -5,7 +5,7 @@ mydir=$(readlink -f "$(dirname "$0")")
 
 for f in $(ls -a "$mydir"); do
   case "$f" in
-  .|..|.git|$myname|*.swp|*~)
+  .|..|.git|README*|$myname|*.swp|*~)
     continue
   esac
 
