@@ -12,12 +12,22 @@ alias bx='bundle exec'
 eval `dircolors -b`
 alias ls='ls --color=auto'
 
-if which colordiff >/dev/null 2>&1; then
+if which colordiff >/dev/null; then
   diff () {
     if test -t 1; then
       command colordiff "$@"
     else
       command diff "$@"
+    fi
+  }
+fi
+
+if which dstat >/dev/null; then
+  dstat () {
+    if test $# -eq 0; then
+      command dstat -cdngmsy
+    else
+      command dstat "$@"
     fi
   }
 fi
