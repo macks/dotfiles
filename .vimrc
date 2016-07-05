@@ -7,17 +7,28 @@ filetype plugin on
 set sw=2 sts=2
 set hlsearch incsearch ignorecase smartcase autoindent wildmenu showmatch nobackup ruler
 set modeline
+" set laststatus=2
+" set formatoptions=croql
 syntax on
+
+runtime macros/matchit.vim
 
 " plugins
 call plug#begin('~/.vim/plugged')
 Plug 'vim-scripts/git-commit'
+Plug 'vim-scripts/svn-diff.vim'
+Plug 'tpope/vim-endwise'
+Plug 'jamessan/vim-gnupg'
+Plug 'scrooloose/nerdtree'
 call plug#end()
 
 " git-commit
 let g:git_diff_spawn_mode = 1
 
-runtime macros/matchit.vim
+" key mapping
+noremap g} gt
+noremap g{ gT
+noremap <Space>t :NERDTree<CR>
 
 if v:version >= 602
   set ambiwidth=double
