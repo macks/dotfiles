@@ -10,6 +10,11 @@ shopt -s histappend
 # check windows size
 shopt -s checkwinsize
 
+if [ -z "$debian_chroot" -a -r /etc/debian_chroot ]; then
+  debian_chroot=$(cat /etc/debian_chroot)
+fi
+PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+
 # if TERM is screen, set the title.
 case "$TERM" in
 screen*)
