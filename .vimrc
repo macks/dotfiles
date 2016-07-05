@@ -20,6 +20,10 @@ Plug 'vim-scripts/svn-diff.vim'
 Plug 'tpope/vim-endwise'
 Plug 'jamessan/vim-gnupg'
 Plug 'scrooloose/nerdtree'
+
+if filereadable(expand($HOME . '/.vimrc.local.plugins'))
+  source $HOME/.vimrc.local.plugins
+endif
 call plug#end()
 
 " git-commit
