@@ -21,8 +21,8 @@ Plug 'tpope/vim-endwise'
 Plug 'jamessan/vim-gnupg'
 Plug 'scrooloose/nerdtree'
 
-if filereadable(expand($HOME . '/.vimrc.local.plugins'))
-  source $HOME/.vimrc.local.plugins
+if filereadable($HOME . '/.vimrc.local.plugins')
+  source ~/.vimrc.local.plugins
 endif
 call plug#end()
 
@@ -60,6 +60,6 @@ au BufRead,BufNewFile *.py set et sw=4 sts=4
 au BufRead,BufNewFile *.haml,*.sass,*.scss set et
 
 " read local vimrc
-if filereadable(expand($HOME . '/.vimrc.local'))
-  source $HOME/.vimrc.local
+if filereadable($HOME . '/.vimrc.local')
+  source ~/.vimrc.local
 endif
