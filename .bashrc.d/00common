@@ -10,13 +10,18 @@ shopt -s histappend
 # check windows size
 shopt -s checkwinsize
 
+if [ -z "$debian_chroot" -a -r /etc/debian_chroot ]; then
+  debian_chroot=$(cat /etc/debian_chroot)
+fi
+PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+
 # if TERM is screen, set the title.
 case "$TERM" in
 screen*)
-    PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}: ${PWD}\007\033k${SCREEN_TITLE}\033\\"'
-    SCREEN_TITLE=${HOSTNAME%%.*}
-    title () { SCREEN_TITLE="$1"; }
-    ;;
+  PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}: ${PWD}\007\033k${SCREEN_TITLE}\033\\"'
+  SCREEN_TITLE=${HOSTNAME%%.*}
+  title () { SCREEN_TITLE="$1"; }
+  ;;
 esac
 
 # automatic pushd

@@ -2,16 +2,16 @@
 
 # path
 for i in ~/bin; do
-  test -d "$i" || continue
-  PATH="$i:$PATH"
+  test -d "$i" && PATH="$i:$PATH"
 done
 
-# mail address
+# mail address (rot13)
 if test "$USER" = macks; then
-  EMAIL=macksx@gmail.com
+  EMAIL=znpxfk@tznvy.pbz
 else
-  EMAIL=k-matsuyama@bns-g.com
+  EMAIL=x-zngfhlnzn@oaf-t.pbz
 fi
+EMAIL=$(echo $EMAIL | tr a-z n-za-m)
 export EMAIL
 
 # set environment variables

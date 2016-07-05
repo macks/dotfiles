@@ -54,3 +54,8 @@ endif
 au BufRead,BufNewFile *.rb,*.erb set et sw=2 sts=2
 au BufRead,BufNewFile *.py set et sw=4 sts=4
 au BufRead,BufNewFile *.haml,*.sass,*.scss set et
+
+" read local vimrc
+if filereadable(expand($HOME . '/.vimrc.local'))
+  source $HOME/.vimrc.local
+endif

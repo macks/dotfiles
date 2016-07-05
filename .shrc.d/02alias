@@ -4,12 +4,10 @@
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
-alias vi=vim
 alias dirs='dirs -v'
 alias grep='grep --color=auto --exclude-dir=.svn --exclude-dir=.git --exclude=".*.swp"'
-alias bx='bundle exec'
 
-eval `dircolors -b`
+eval $(dircolors -b)
 alias ls='ls --color=auto'
 
 if which colordiff >/dev/null; then
@@ -31,3 +29,9 @@ if which dstat >/dev/null; then
     fi
   }
 fi
+
+if which vim >/dev/null; then
+  alias vi=vim
+fi
+
+alias bx='bundle exec'
