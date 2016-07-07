@@ -17,9 +17,12 @@ runtime macros/matchit.vim
 call plug#begin('~/.vim/plugged')
 Plug 'vim-scripts/git-commit'
 Plug 'vim-scripts/svn-diff.vim'
-Plug 'tpope/vim-endwise'
 Plug 'jamessan/vim-gnupg'
+Plug 'uarun/vim-protobuf'
+Plug 'tpope/vim-haml'
+
 Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-endwise'
 
 if filereadable($HOME . '/.vimrc.local.plugins')
   source ~/.vimrc.local.plugins
