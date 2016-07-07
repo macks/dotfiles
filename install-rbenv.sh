@@ -1,6 +1,11 @@
 #!/bin/sh
 RBENV_ROOT=${1:-~/.rbenv}
 
+if test -d "$RBENV_ROOT"; then
+  echo "Already exists: $RBENV_ROOT"
+  exit 1
+fi
+
 git clone https://github.com/rbenv/rbenv.git "$RBENV_ROOT"
 
 git clone https://github.com/rbenv/ruby-build.git               "$RBENV_ROOT/plugins/ruby-build"
