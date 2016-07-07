@@ -9,8 +9,10 @@ for f in $(ls -a "$mydir"); do
   esac
 
   symlink="$HOME/$f"
-  test -e "$symlink" -a ! -L "$symlink" && continue
-
-  echo "install $f"
-  ln -sfn "$mydir/$f" "$symlink"
+  if test -e "$symlink" -a ! -L "$symlink"; then
+    echo "skip $f"
+    continue
+  else
+    ln -sfn "$mydir/$f" "$symlink"
+  fi
 done
