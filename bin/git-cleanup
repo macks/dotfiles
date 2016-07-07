@@ -1,0 +1,35 @@
+#!/bin/sh -e
+
+# This script does
+#   1) fetch from upstream and origin.
+#   2) maintain local branches.
+#   3) push upstream changes to origin.
+
+# remote name
+origin=origin
+upstream=upstream
+
+# master branch name
+master=master
+
+git fetch --multiple --prune $origin $upstream
+
+upstream_branches=$(git branch --list -r "$upstream/*" | sed 's!^[^/]*/!!')
+upstream_brahches_regexp=$(echo $upstream_branches | sed 's/ /|/g')
+
+for branch in $upstream_branches; do
+  echo -n "$branch: "
+
+  if git rev-parse $branch >/dev/null 2>&1; then
+    git checkout -q $branch
+    git merge --ff-only $upstream/$branch
+  else
+    echo "Created."
+    git checkout -q -b $branch $upstream/$branch
+  fi
+
+  git branch --merged | grep -v '^\*' | egrep -v "$upstream_brahches_regexp" | xargs -r git branch -d
+done
+
+git push $origin $upstream_branches
+git checkout -q $master
