@@ -1,11 +1,10 @@
 #!/bin/sh -e
 
-myname=$(basename "$0")
 mydir=$(readlink -f "$(dirname "$0")")
 
 for f in $(ls -a "$mydir"); do
   case "$f" in
-  .|..|.git|README*|$myname|*.swp|*~)
+  .|..|.git|README*|*.sh|*.swp|*~)
     continue
   esac
 
