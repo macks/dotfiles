@@ -4,4 +4,8 @@
 if test $(id -un) != root && which keychain >/dev/null && ls ~/.ssh/id_[dr]sa >/dev/null 2>&1; then
   eval $(keychain --agents ssh --nogui --eval --quiet --timeout 10080)
   alias ssh-add='ssh-add -t 604800'
+
+  if ! ssh-add -l >/dev/null; then
+    ssh-add
+  fi
 fi
