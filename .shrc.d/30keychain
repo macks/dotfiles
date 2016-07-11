@@ -1,7 +1,7 @@
 # vim: set ft=sh:
 
 # manage ssh-agent
-if test $(id -un) != root && which keychain >/dev/null && ls ~/.ssh/id_[dr]sa >/dev/null 2>&1; then
+if test -t 0 -a $(id -un) != root && which keychain >/dev/null && ls ~/.ssh/id_[dr]sa >/dev/null 2>&1; then
   eval $(keychain --agents ssh --nogui --eval --quiet --timeout 10080)
   alias ssh-add='ssh-add -t 604800'
 
