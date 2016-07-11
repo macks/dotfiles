@@ -3,7 +3,7 @@
 # This script does
 #   1) fetch from upstream and origin.
 #   2) maintain local branches.
-#   3) push upstream changes to origin.
+#   3) push upstream's changes to origin.
 
 # remote name
 origin=origin
