@@ -15,7 +15,7 @@ master=master
 git fetch --multiple --prune $origin $upstream
 
 upstream_branches=$(git branch --list -r "$upstream/*" | sed 's!^[^/]*/!!')
-upstream_brahches_regexp=$(echo $upstream_branches | sed 's/ /|/g')
+upstream_brahches_regexp=$(echo $upstream_branches | sed 's/ /\\|/g')
 
 for branch in $upstream_branches; do
   echo -n "$branch: "
@@ -24,11 +24,11 @@ for branch in $upstream_branches; do
     git checkout -q $branch
     git merge --ff-only $upstream/$branch
   else
-    echo "Created."
     git checkout -q -b $branch $upstream/$branch
+    echo "Created."
   fi
 
-  git branch --merged | grep -v '^\*' | egrep -v "$upstream_brahches_regexp" | xargs -r git branch -d
+  git branch --merged | grep -v "^[ *]*\\($upstream_brahches_regexp\\)$" | xargs -r git branch -d
 done
 
 git push $origin $upstream_branches
