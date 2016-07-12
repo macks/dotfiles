@@ -21,6 +21,7 @@ Plug 'jamessan/vim-gnupg'
 Plug 'uarun/vim-protobuf'
 Plug 'tpope/vim-haml'
 
+Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-endwise'
 
