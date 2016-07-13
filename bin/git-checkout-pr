@@ -1,0 +1,49 @@
+#!/bin/sh -e
+
+usage() {
+  echo "USAGE: git checkout-pr [[-b|-B|--orphan] <new_branch>] [<remote>/]<pr_number>"
+}
+
+checkout_options=
+
+while test -n "$1"; do
+  case "$1" in
+    -b|-B|--orphan)
+      checkout_options="$1 $2"
+      shift 2
+      ;;
+    -*)
+      echo "Unknown option: $1" >&2
+      exit 1
+      ;;
+    *)
+      break
+  esac
+done
+
+if ! test $# = 1; then
+  usage
+  exit 1
+elif ! echo "$1" | grep -q '^\([^/ ]\+/\)\?[0-9]\+$'; then
+  echo "Argument error: $1" >&2
+  exit 1
+fi
+
+remote_name=$(dirname "$1")
+pr_number=$(basename "$1")
+
+if test "$remote_name" = .; then
+  remote_name=origin
+fi
+
+refname="pullreq/$remote_name/$pr_number/head"
+refspec="+refs/pull/$pr_number/*:refs/pullreq/$remote_name/$pr_number/*"
+
+git fetch "$remote_name" "$refspec"
+
+if ! git rev-parse "$refname" >/dev/null 2>&1; then
+  echo "Not found: $remote_name's PR #$pr_number" >&2
+  exit 1
+fi
+
+git checkout $checkout_options $refname
