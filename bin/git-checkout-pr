@@ -1,4 +1,4 @@
-#!/bin/sh -e
+#!/bin/bash -e
 
 usage() {
   echo "USAGE: git checkout-pr [[-b|-B|--orphan] <new_branch>] [<remote>/]<pr_number>"

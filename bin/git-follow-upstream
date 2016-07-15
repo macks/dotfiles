@@ -1,4 +1,4 @@
-#!/bin/sh -e
+#!/bin/bash -e
 
 # This script does
 #   1) fetch from upstream and origin.

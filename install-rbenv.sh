@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 RBENV_ROOT=${1:-~/.rbenv}
 
 if test -d "$RBENV_ROOT"; then
