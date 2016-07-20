@@ -2,7 +2,7 @@
 
 for i in ~/.bashrc.d ~/.bashrc.d.local ~/.shrc.d ~/.shrc.d.local; do
   for rc in "$i"/*; do
-    test -r "$rc" && . "$rc"
+    test -f "$rc" && . "$rc"
   done
 done
 
