@@ -14,7 +14,7 @@ master=master
 
 git fetch --multiple --prune $origin $upstream
 
-upstream_branches=$(git branch --list -r "$upstream/*" | sed 's!^[^/]*/!!')
+upstream_branches=$(git branch -r | grep -v -- '->' | grep "$upstream/.*" | sed 's!^.*/!!')
 upstream_brahches_regexp=$(echo $upstream_branches | sed 's/ /\\|/g')
 
 for branch in $upstream_branches; do
