@@ -2,6 +2,9 @@
 
 usage() {
   echo "USAGE: git checkout-pr [[-b|-B|--orphan] <new_branch>] [<remote>/]<pr_number>"
+  echo "EXAMPLES:"
+  echo "  > git checkout-pr 123"
+  echo "  > git checkout-pr upstream/11"
 }
 
 checkout_options=
