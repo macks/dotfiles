@@ -4,3 +4,5 @@
 	name = MATSUYAMA Kengo
 [color]
 	ui = auto
+[push]
+	default = simple
