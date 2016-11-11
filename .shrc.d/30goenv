@@ -1,0 +1,19 @@
+# vim: set ft=sh:
+
+# goenv
+#   https://github.com/wfarr/goenv
+if which goenv >/dev/null; then
+  eval "$(goenv init -)"
+elif test -n "$GOENV_ROOT"; then
+  PATH="$GOENV_ROOT/bin:$PATH"
+  eval "$(goenv init -)"
+else
+  for i in ~/.goenv /usr/local/goenv; do
+    if test -x "$i/bin/goenv"; then
+      export GOENV_ROOT="$i"
+      PATH="$GOENV_ROOT/bin:$PATH"
+      eval "$(goenv init -)"
+      break
+    fi
+  done
+fi
