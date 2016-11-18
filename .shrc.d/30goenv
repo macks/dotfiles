@@ -1,7 +1,8 @@
 # vim: set ft=sh:
 
 # goenv
-#   https://github.com/wfarr/goenv
+#   $ git clone https://github.com/wfarr/goenv.git ~/.goenv
+
 if which goenv >/dev/null; then
   eval "$(goenv init -)"
 elif test -n "$GOENV_ROOT"; then

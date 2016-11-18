@@ -1,7 +1,7 @@
 # vim: set ft=sh:
 
 # nvm
-#   https://github.com/creationix/nvm
+#   $ git clone https://github.com/creationix/nvm.git ~/.nvm
 
 if test -z "$NVM_DIR" -a -d "$HOME/.nvm"; then
   export NVM_DIR="$HOME/.nvm"
