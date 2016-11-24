@@ -1,4 +1,4 @@
 # vim: set ft=sh:
 
 # disable Ctrl-S
-stty stop undef
+test -t 1 && stty stop undef
