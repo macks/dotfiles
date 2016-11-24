@@ -15,8 +15,8 @@ EMAIL=$(echo $EMAIL | tr a-z n-za-m)
 export EMAIL
 
 # set environment variables
-LANG=$(locale -a | sed -n '/^ja_JP\.\(utf8\|UTF-8\)/ {p;q}')
-: ${LANG:=$(locale -a | sed -n '/^\(C\|en_..\)\.\(utf8\|UTF-8\)/ {p;q}')}
+LANG=$(LC_ALL=C locale -a | sed -n '/^ja_JP\.\(utf8\|UTF-8\)/ {p;q}')
+: ${LANG:=$(LC_ALL=C locale -a | sed -n '/^\(C\|en_..\)\.\(utf8\|UTF-8\)/ {p;q}')}
 : ${LANG:=C}
 export LANG
 export LC_CTYPE=$LANG
