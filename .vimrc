@@ -21,6 +21,7 @@ Plug 'jamessan/vim-gnupg'
 Plug 'uarun/vim-protobuf'
 Plug 'tpope/vim-haml'
 Plug 'tpope/vim-markdown'
+Plug 'fatih/vim-go'
 
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree'
@@ -63,6 +64,7 @@ endif
 au BufRead,BufNewFile *.rb,*.erb set et sw=2 sts=2
 au BufRead,BufNewFile *.py set et sw=4 sts=4
 au BufRead,BufNewFile *.haml,*.sass,*.scss set et
+au BufRead,BufNewFile *.go set noet sw=8 sts=8 ts=8
 
 " read local vimrc
 if filereadable($HOME . '/.vimrc.local')
