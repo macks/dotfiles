@@ -22,6 +22,7 @@ Plug 'uarun/vim-protobuf'
 Plug 'tpope/vim-haml'
 Plug 'tpope/vim-markdown'
 Plug 'fatih/vim-go'
+Plug 'pearofducks/ansible-vim'
 
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree'
