@@ -1,0 +1,8 @@
+# set vim: ft=sh:
+if which direnv >/dev/null; then
+  x=
+  test -n "$BASH_VERSION" && x="bash"
+  test -n "$ZSH_VERSION"  && x="zsh$x"
+  test -n "$x" && eval "$(direnv hook $x 2>/dev/null)"
+  unset x
+fi
