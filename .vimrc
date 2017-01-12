@@ -55,6 +55,11 @@ if v:version >= 700
   set completeopt=menu
 endif
 
+if has('persistent_undo')
+  set undodir=~/.vim/undo
+  set undofile
+endif
+
 if has('gui_running')
   set guioptions-=T
   set guifont=Monospace\ 12
@@ -62,7 +67,7 @@ if has('gui_running')
 endif
 
 " file types
-au BufRead,BufNewFile *.rb,*.erb set et sw=2 sts=2
+au BufRead,BufNewFile *.rb,*.erb set et
 au BufRead,BufNewFile *.py set et sw=4 sts=4
 au BufRead,BufNewFile *.haml,*.sass,*.scss set et
 au BufRead,BufNewFile *.go set noet sw=8 sts=8 ts=8
