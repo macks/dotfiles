@@ -5,6 +5,6 @@ How to setup
 ------------
 
 ```
- $ git clone git@example.com:dotfiles.git ~/.dotfiles
+ $ git clone https://github.com/macks/dotfiles.git ~/.dotfiles
  $ ~/.dotfiles/install.sh
 ```
