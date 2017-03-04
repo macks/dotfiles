@@ -7,7 +7,7 @@ filetype plugin on
 set sw=2 sts=2
 set hlsearch incsearch ignorecase smartcase autoindent wildmenu showmatch nobackup ruler
 set modeline
-" set laststatus=2
+set laststatus=2
 " set formatoptions=croql
 syntax on
 
