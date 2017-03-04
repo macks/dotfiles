@@ -39,6 +39,10 @@ call plug#end()
 " git-commit
 let g:git_diff_spawn_mode = 1
 
+" vim-go
+au FileType go nmap <C-g> :GoDecls<cr>
+au FileType go imap <C-g> <esc>:<C-u>GoDecls<cr>
+
 " key mapping
 noremap g} gt
 noremap g{ gT
