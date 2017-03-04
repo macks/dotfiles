@@ -24,9 +24,12 @@ Plug 'tpope/vim-markdown'
 Plug 'fatih/vim-go'
 Plug 'pearofducks/ansible-vim'
 
+Plug 'tpope/vim-endwise'
+Plug 'Shougo/neocomplete'
+Plug 'ctrlpvim/ctrlp.vim'
+
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree'
-Plug 'tpope/vim-endwise'
 
 if filereadable($HOME . '/.vimrc.local.plugins')
   source ~/.vimrc.local.plugins
@@ -64,6 +67,11 @@ if has('gui_running')
   set guioptions-=T
   set guifont=Monospace\ 12
   set columns=80 lines=35
+endif
+
+" neocomplete
+if has('lua') && (v:version > 703 || v:version == 703 && has('patch885'))
+  let g:neocomplete#enable_at_startup = 1
 endif
 
 " file types
