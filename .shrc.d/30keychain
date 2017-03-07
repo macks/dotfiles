@@ -1,11 +1,24 @@
 # vim: set ft=sh:
 
 # manage ssh-agent
-if test -t 0 -a $(id -un) != root && which keychain >/dev/null && ls ~/.ssh/id_[dr]sa >/dev/null 2>&1; then
-  eval $(keychain --agents ssh --nogui --eval --quiet --timeout 10080)
-  alias ssh-add='ssh-add -t 604800'
-
-  if ! ssh-add -l >/dev/null; then
-    ssh-add
+if test -t 0 -a $(id -un) != root && which keychain >/dev/null; then
+  if ! ls "$SSH_AUTH_SOCK" >/dev/null 2>&1; then
+    # if the socket doesn't exist, try to load old keychain status.
+    . ~/.keychain/"${HOSTNAME}-sh" 2>/dev/null
   fi
+
+  if ls ~/.ssh/id_[dr]sa >/dev/null 2>&1; then
+    x=local-once
+  elif test -n "$SSH_AUTH_SOCK"; then
+    x=any-once
+  else
+    x=
+  fi
+
+  if test -n "$x"; then
+    eval $(keychain --agents ssh --inherit $x --nogui --eval --quiet --timeout 10080)
+    alias ssh-add='ssh-add -t 604800'
+    ssh-add -l >/dev/null || ssh-add
+  fi
+  unset x
 fi
