@@ -1,0 +1,20 @@
+# vim: set ft=sh:
+
+# rbenv
+if which rbenv >/dev/null; then
+  eval "$(rbenv init -)"
+else
+  if test -z "$RBENV_ROOT"; then
+    for i in ~/.rbenv /usr/local/rbenv; do
+      if test -x "$i/bin/rbenv"; then
+        export RBENV_ROOT="$i"
+        break
+      fi
+    done
+  fi
+
+  if test -n "$RBENV_ROOT"; then
+    PATH="$RBENV_ROOT/bin:$PATH"
+    eval "$(rbenv init -)"
+  fi
+fi
