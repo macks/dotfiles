@@ -7,7 +7,7 @@ filetype plugin on
 set sw=2 sts=2
 set hlsearch incsearch ignorecase smartcase autoindent wildmenu showmatch nobackup ruler
 set modeline
-" set laststatus=2
+set laststatus=2
 " set formatoptions=croql
 syntax on
 
@@ -24,9 +24,12 @@ Plug 'tpope/vim-markdown'
 Plug 'fatih/vim-go'
 Plug 'pearofducks/ansible-vim'
 
+Plug 'tpope/vim-endwise'
+Plug 'Shougo/neocomplete'
+Plug 'ctrlpvim/ctrlp.vim'
+
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree'
-Plug 'tpope/vim-endwise'
 
 if filereadable($HOME . '/.vimrc.local.plugins')
   source ~/.vimrc.local.plugins
@@ -35,6 +38,10 @@ call plug#end()
 
 " git-commit
 let g:git_diff_spawn_mode = 1
+
+" vim-go
+au FileType go nmap <C-g> :GoDecls<cr>
+au FileType go imap <C-g> <esc>:<C-u>GoDecls<cr>
 
 " key mapping
 noremap g} gt
@@ -64,6 +71,11 @@ if has('gui_running')
   set guioptions-=T
   set guifont=Monospace\ 12
   set columns=80 lines=35
+endif
+
+" neocomplete
+if has('lua') && (v:version > 703 || v:version == 703 && has('patch885'))
+  let g:neocomplete#enable_at_startup = 1
 endif
 
 " file types
