@@ -40,6 +40,14 @@ call plug#end()
 let g:git_diff_spawn_mode = 1
 
 " vim-go
+let g:go_auto_type_info = 1
+let g:go_highlight_types = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_generate_tags = 1
 au FileType go nmap <C-g> :GoDecls<cr>
 au FileType go imap <C-g> <esc>:<C-u>GoDecls<cr>
 
