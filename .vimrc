@@ -1,7 +1,7 @@
 set enc=utf-8
 set fenc=utf-8
 set fencs=utf-8,cp932,euc-jp
-autocmd BufReadPost * if search('\e\$B.*\e(B') | edit ++enc=iso-2022-jp | endif
+au BufReadPost * if search('\e\$B.*\e(B') | edit ++enc=iso-2022-jp | endif
 filetype plugin on
 
 set sw=2 sts=2
@@ -28,7 +28,6 @@ Plug 'tpope/vim-endwise'
 Plug 'Shougo/neocomplete'
 Plug 'ctrlpvim/ctrlp.vim'
 
-Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree'
 
 if filereadable($HOME . '/.vimrc.local.plugins')
@@ -88,10 +87,10 @@ if has('lua') && (v:version > 703 || v:version == 703 && has('patch885'))
 endif
 
 " file types
-au BufRead,BufNewFile *.rb,*.erb set et
-au BufRead,BufNewFile *.py set et sw=4 sts=4
-au BufRead,BufNewFile *.haml,*.sass,*.scss set et
-au BufRead,BufNewFile *.go set noet sw=8 sts=8 ts=8 autowrite
+au FileType ruby,eruby set et
+au FileType haml,sass,scss set et
+au FileType python set et sw=4 sts=4
+au FileType go set noet sw=8 sts=8 ts=8 autowrite
 
 " read local vimrc
 if filereadable($HOME . '/.vimrc.local')
