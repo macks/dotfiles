@@ -91,7 +91,7 @@ endif
 au BufRead,BufNewFile *.rb,*.erb set et
 au BufRead,BufNewFile *.py set et sw=4 sts=4
 au BufRead,BufNewFile *.haml,*.sass,*.scss set et
-au BufRead,BufNewFile *.go set noet sw=8 sts=8 ts=8
+au BufRead,BufNewFile *.go set noet sw=8 sts=8 ts=8 autowrite
 
 " read local vimrc
 if filereadable($HOME . '/.vimrc.local')
