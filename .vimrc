@@ -41,6 +41,7 @@ let g:git_diff_spawn_mode = 1
 
 " vim-go
 let g:go_auto_type_info = 1
+let g:go_fmt_command = "goimports"
 let g:go_highlight_types = 1
 let g:go_highlight_extra_types = 1
 let g:go_highlight_fields = 1
