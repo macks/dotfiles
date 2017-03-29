@@ -5,6 +5,7 @@ defscrollback 3000
 defencoding utf-8
 hardstatus alwayslastline "%-Lw%{= bw}%50>%n%f* %t%{-}%+Lw%<"
 termcapinfo screen|xterm*|rxvt*|kterm*|Eterm* XT
+termcapinfo xterm* 'is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l'
 cjkwidth on
 
 bind R resize
@@ -12,3 +13,6 @@ bind j focus down
 bind k focus up
 bind t focus top
 bind b focus bottom
+
+defbce on
+term screen-256color
