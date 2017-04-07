@@ -24,6 +24,7 @@ Plug 'tpope/vim-markdown'
 Plug 'fatih/vim-go'
 Plug 'pearofducks/ansible-vim'
 
+Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-endwise'
 Plug 'Shougo/neocomplete'
 Plug 'ctrlpvim/ctrlp.vim'
