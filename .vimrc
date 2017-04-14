@@ -26,10 +26,13 @@ Plug 'pearofducks/ansible-vim'
 
 Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-endwise'
-Plug 'Shougo/neocomplete'
 Plug 'ctrlpvim/ctrlp.vim'
 
 Plug 'scrooloose/nerdtree'
+
+if has('lua') && (v:version > 703 || v:version == 703 && has('patch885'))
+  Plug 'Shougo/neocomplete'
+endif
 
 if filereadable($HOME . '/.vimrc.local.plugins')
   source ~/.vimrc.local.plugins
@@ -83,9 +86,7 @@ if has('gui_running')
 endif
 
 " neocomplete
-if has('lua') && (v:version > 703 || v:version == 703 && has('patch885'))
-  let g:neocomplete#enable_at_startup = 1
-endif
+let g:neocomplete#enable_at_startup = 1
 
 " file types
 au FileType ruby,eruby set et
