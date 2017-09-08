@@ -30,3 +30,19 @@ for name in "$@"; do
     "$script"
   fi
 done
+
+# .ssh directory
+if ! test -e "$HOME/.ssh"; then
+  mkdir "$HOME/.ssh"
+  chmod 700 "$HOME/.ssh"
+  mkdir "$HOME/.ssh/sockets"
+
+  cat > "$HOME/.ssh/config" <<EOS
+ForwardAgent yes
+ServerAliveInterval 120
+
+Host *
+  ControlMaster auto
+  ControlPath ~/.ssh/sockets/%r@%h:%p
+EOS
+fi
