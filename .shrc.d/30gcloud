@@ -1,0 +1,9 @@
+# set vim: ft=sh:
+if test -d ~/google-cloud-sdk; then
+  PATH="$HOME/google-cloud-sdk/bin:$PATH"
+  x=
+  test -n "$BASH_VERSION" && x="bash"
+  test -n "$ZSH_VERSION"  && x="zsh$x"
+  test -n "$x" && . ~/google-cloud-sdk/completion.${x}.inc
+  unset x
+fi
