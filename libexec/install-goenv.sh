@@ -1,2 +1,2 @@
 #!/bin/sh -e
-git clone https://github.com/wfarr/goenv.git ~/.goenv
+git clone --depth 1 https://github.com/wfarr/goenv.git ~/.goenv

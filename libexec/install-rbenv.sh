@@ -12,10 +12,10 @@ if test -d "$RBENV_ROOT"; then
   exit 1
 fi
 
-git clone https://github.com/rbenv/rbenv.git "$RBENV_ROOT"
+git clone --depth 1 https://github.com/rbenv/rbenv.git "$RBENV_ROOT"
 
 for url in $RBENV_PLUGINS; do
-  git clone $url "$RBENV_ROOT/plugins/$(basename "$url" .git)"
+  git clone --depth 1 $url "$RBENV_ROOT/plugins/$(basename "$url" .git)"
 done
 
 echo bundler > "$RBENV_ROOT/default-gems"

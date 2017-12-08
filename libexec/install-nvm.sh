@@ -1,2 +1,2 @@
 #!/bin/sh -e
-git clone https://github.com/creationix/nvm.git ~/.nvm
+git clone --depth 1 https://github.com/creationix/nvm.git ~/.nvm
