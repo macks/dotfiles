@@ -1,7 +1,7 @@
 # vim: set ft=sh:
 
 # rbenv
-if which rbenv >/dev/null; then
+if which rbenv >/dev/null 2>&1; then
   eval "$(rbenv init -)"
 else
   if test -z "$RBENV_ROOT"; then

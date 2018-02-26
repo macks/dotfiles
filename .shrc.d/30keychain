@@ -1,7 +1,7 @@
 # vim: set ft=sh:
 
 # manage ssh-agent
-if test -t 0 -a $(id -un) != root && which keychain >/dev/null; then
+if test -t 0 -a $(id -un) != root && which keychain >/dev/null 2>&1; then
   if ! ls "$SSH_AUTH_SOCK" >/dev/null 2>&1; then
     # if the socket doesn't exist, try to load old keychain status.
     . ~/.keychain/"${HOSTNAME}-sh" 2>/dev/null

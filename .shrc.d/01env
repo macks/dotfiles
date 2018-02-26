@@ -28,5 +28,5 @@ test -n "$DISPLAY" && LC_MESSAGES=$LANG
 
 export COLUMNS LINES
 
-which vim >/dev/null && export EDITOR=vim
-which lv  >/dev/null && export PAGER=lv
+which vim >/dev/null 2>&1 && export EDITOR=vim
+which lv  >/dev/null 2>&1 && export PAGER=lv

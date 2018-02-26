@@ -1,7 +1,7 @@
 # vim: set ft=sh:
 
 # goenv
-if which goenv >/dev/null; then
+if which goenv >/dev/null 2>&1; then
   eval "$(goenv init -)"
 else
   if test -z "$GOENV_ROOT"; then

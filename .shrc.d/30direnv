@@ -1,5 +1,5 @@
 # set vim: ft=sh:
-if which direnv >/dev/null; then
+if which direnv >/dev/null 2>&1; then
   x=
   test -n "$BASH_VERSION" && x="bash"
   test -n "$ZSH_VERSION"  && x="zsh$x"
