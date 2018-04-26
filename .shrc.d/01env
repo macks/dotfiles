@@ -1,7 +1,7 @@
 # vim: set ft=sh:
 
 # path
-for i in ~/bin; do
+for i in ~/bin ~/.local/bin; do
   test -d "$i" && PATH="$i:$PATH"
 done
 
