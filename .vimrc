@@ -34,6 +34,10 @@ if has('lua') && (v:version > 703 || v:version == 703 && has('patch885'))
   Plug 'Shougo/neocomplete'
 endif
 
+if v:version >= 800
+  Plug 'w0rp/ale'
+endif
+
 if filereadable($HOME . '/.vimrc.local.plugins')
   source ~/.vimrc.local.plugins
 endif
