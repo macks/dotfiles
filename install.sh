@@ -46,3 +46,16 @@ Host *
   ControlPath ~/.ssh/sockets/%r@%h:%p
 EOS
 fi
+
+# .vimrc
+if ! test -e "$HOME/.vimrc.local.plugins"; then
+  cat > "$HOME/.vimrc.local.plugins" <<EOS
+" Plug 'pangloss/vim-javascript'
+" Plug 'posva/vim-vue'
+" Plug 'mxw/vim-jsx'
+
+" Plug 'uarun/vim-protobuf'
+" Plug 'tpope/vim-haml'
+" Plug 'pearofducks/ansible-vim'
+EOS
+fi

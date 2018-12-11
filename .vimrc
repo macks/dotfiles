@@ -18,11 +18,9 @@ call plug#begin('~/.vim/plugged')
 Plug 'vim-scripts/git-commit'
 Plug 'vim-scripts/svn-diff.vim'
 Plug 'jamessan/vim-gnupg'
-Plug 'uarun/vim-protobuf'
-Plug 'tpope/vim-haml'
 Plug 'tpope/vim-markdown'
+Plug 'vim-ruby/vim-ruby'
 Plug 'fatih/vim-go'
-Plug 'pearofducks/ansible-vim'
 
 Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-endwise'
