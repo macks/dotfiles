@@ -30,3 +30,4 @@ export COLUMNS LINES
 
 which vim >/dev/null 2>&1 && export EDITOR=vim
 which lv  >/dev/null 2>&1 && export PAGER=lv
+which less >/dev/null 2>&1 && export LESS=cRX

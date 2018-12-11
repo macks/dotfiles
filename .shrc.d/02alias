@@ -30,6 +30,12 @@ if which dstat >/dev/null 2>&1; then
   }
 fi
 
+if which nkf >/dev/null 2>&1; then
+  jless () {
+    LESSOPEN='| nkf -xw %s' less "$@"
+  }
+fi
+
 if which vim >/dev/null 2>&1; then
   alias vi=vim
 fi
