@@ -1,0 +1,16 @@
+# vim: set ft=sh:
+
+# anyenv
+if which anyenv >/dev/null 2>&1; then
+  eval "$(anyenv init -)"
+else
+  if test -z "$anyENV_ROOT"; then
+    for i in ~/.anyenv /usr/local/anyenv; do
+      if test -x "$i/bin/anyenv"; then
+        PATH="$i/bin:$PATH"
+        eval "$(anyenv init -)"
+        break
+      fi
+    done
+  fi
+fi
